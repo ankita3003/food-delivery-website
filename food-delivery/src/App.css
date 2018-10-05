@@ -2,3 +2,13 @@
   text-align: center;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+#home {
+	background: linear-gradient(89deg, #FF1700 0%, #F00CAF 100%);
+	background-size: cover;
+}
+

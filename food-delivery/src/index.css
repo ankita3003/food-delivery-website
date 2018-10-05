@@ -1,6 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto Mono", Courier, monospace;
-  background: linear-gradient(89deg, #FFEA00 0%, #CCE9EA 100%);
+  font-family: "Roboto Slab", Courier, monospace;
+  background: linear-gradient(89deg, #FCF700 0%, #F88CAF 100%);
+}
+
+#home {
+	background: linear-gradient(89deg, #FF1700 0%, #F00CAF 100%);
 }
