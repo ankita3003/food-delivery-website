@@ -1,8 +1,8 @@
 const dishes = [
   {
     id: 1,
-    name: 'Vada Pav',
-    price: 15,
+    name: 'Cheeseburger',
+    price: 45,
   },
   {
     id: 2,
