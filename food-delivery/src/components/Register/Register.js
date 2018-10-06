@@ -22,7 +22,8 @@ class Register extends React.Component {
 		this.setState({password: event.target.value})
 	}
 
-	// onSubmitSignIn = () => {
+	onSubmitSignIn = () => {
+		this.props.onRouteChange('home');
 	// 	fetch('http://localhost:3000/register', {
 	// 		method: 'post',
 	// 		headers: {'Content-Type': 'application/json'},
@@ -40,7 +41,7 @@ class Register extends React.Component {
 	// 			}
 	// 		}
 	// 	)
-	//  }
+	}
 
 	render() {
 		return (
@@ -86,7 +87,7 @@ class Register extends React.Component {
 					      	className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
 					      	type="submit"
 					      	value="Register"
-					      	// onClick={this.onSubmitSignIn} 
+					      	onClick={this.onSubmitSignIn} 
 					     />
 					    </div>
 					  </div>
