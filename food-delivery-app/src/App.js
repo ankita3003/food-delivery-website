@@ -5,6 +5,7 @@ import Logo from './components/Logo/Logo';
 import Register from './components/Register/Register';
 import SearchBox from './components/SearchBox/SearchBox';
 import CardList from './components/CardList/CardList';
+import Cart from './components/Cart/Cart';
 import dishes from './menu';
 import './App.css';
 import 'tachyons';
@@ -29,6 +30,8 @@ class App extends Component {
 	      this.setState({isSignedIn:false})
 	    } else if (route === 'home') {
 	      this.setState({isSignedIn:true})
+	    } else if (route === 'orders') {
+	    	this.setState({isSignedIn:true})
 	    }
 	    this.setState({route:route});
 	}
@@ -49,11 +52,17 @@ class App extends Component {
 		  		<div id='search'>
 		  			<SearchBox searchChange={this.onSearchChange} /> 
 		  			<Logo />
-		  			<CardList foodItems={filteredItems} />
+		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} />
 		  		</div> :
 		  		(this.state.route === 'register') ?
 		    	<Register onRouteChange={this.onRouteChange} /> :
+		    	(this.state.route === 'orders')? 
+		    	<div className='basket'>
+		    	<Cart /> 
+		    	</div>:
+		    	<div className="pa5" id='temp'>
 		    	<SignIn onRouteChange={this.onRouteChange} />
+		    	</div>
 			}
 		  </div>
 		);

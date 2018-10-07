@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ( {foodItems} ) => {
+const CardList = ( {foodItems , onRouteChange} ) => {
 	return (
 		<div>
 			{
@@ -12,6 +12,7 @@ const CardList = ( {foodItems} ) => {
 							id={foodItems[i].id}
 							name={foodItems[i].name} 
 							price={foodItems[i].price} 
+							onRouteChange = {onRouteChange}
 						/>
 					);
 				})

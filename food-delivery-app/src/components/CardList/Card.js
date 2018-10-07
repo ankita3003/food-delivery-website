@@ -11,14 +11,20 @@ import img9 from './images/img9.jpg';
 import img10 from './images/img10.jpg';
 
 
-const Card = ({name, price, id}) => {
+const Card = ({name, price, id, onRouteChange} ) => {
 	const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
 	return (
-		<div className='tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5'>
+		<div className='tc bg-lightest-blue dib br3 pa3 ma2 grow bw2 shadow-5'>
 			<img alt='pic' src={images[id-1]} height='240' width='auto' />
 			<div>
 				<h2> {name} </h2>
 				<p> Rs. {price} </p>
+				<input 
+			      	className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+			      	type="submit"
+			      	value="Add To Cart"
+			      	onClick={() => onRouteChange('orders') } 
+			     />
 			</div>
 		</div>
 	)
