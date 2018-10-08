@@ -15,12 +15,12 @@ const Navigation = ({onRouteChange, isSignedIn}) => {
 	}
 	else {
 		return (
-			<div className='bb'>
+			<div>
 			<nav>
-				<ul class="left pa3">
+				<ul className="left pa3">
 					<li className="link dim black b f6 f2-ns dib mr3">Tomatoe</li>
 				</ul>
-				<ul class="right">
+				<ul className="right">
 					<li onClick={() => onRouteChange('signin')} className='f4 link dim black pa2 pointer'> SIGN IN </li>
 					<li onClick={() => onRouteChange('register')} className='bl f4 link dim black pa2 pointer'> REGISTER </li>
 				</ul>
