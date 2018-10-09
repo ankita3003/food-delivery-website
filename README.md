@@ -4,9 +4,9 @@
  This isn't commercial, so nothing happens practically, this is just a design.
 
 ## Installing Dependencies :  
-1. Go into food-delivery and type : ``` npm install ```  
+1. Go into food-delivery-app and type : ``` npm install ```  
 
 ## Steps to run :  
 1. Go into the directory  
-   ``` cd food-delivery ```  
+   ``` cd food-delivery-app ```  
 2. Run using :  ``` npm start ```  
