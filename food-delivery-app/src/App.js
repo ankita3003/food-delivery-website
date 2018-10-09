@@ -16,6 +16,7 @@ class App extends Component {
 		this.state = {
 			route: 'signin',
 			isSignedIn: false,
+			cart: [],
 			foodItems: [],
 			searchfield: ''
 		}
@@ -40,6 +41,12 @@ class App extends Component {
 		this.setState({searchfield: event.target.value});	
 	};
 
+	onAdding = (order) => {
+		this.setState({
+			cart: [...this.state.cart, order]
+		})
+	}
+
 	render() {
 		const { searchfield, foodItems } = this.state;
 		const filteredItems = foodItems.filter(dish => {
@@ -52,13 +59,13 @@ class App extends Component {
 		  		<div id='search'>
 		  			<SearchBox searchChange={this.onSearchChange} /> 
 		  			<Logo />
-		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} />
+		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} onAdding={this.onAdding} />
 		  		</div> :
 		  		(this.state.route === 'register') ?
 		    	<Register onRouteChange={this.onRouteChange} /> :
 		    	(this.state.route === 'orders')? 
 		    	<div className='basket'>
-		    	<Cart /> 
+		    	<Cart cart={this.state.cart} /> 
 		    	</div>:
 		    	<div className="pa5" id='temp'>
 		    	<SignIn onRouteChange={this.onRouteChange} />

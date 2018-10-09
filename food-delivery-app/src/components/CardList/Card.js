@@ -15,28 +15,51 @@ class Card extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			orderList: [],
 			qty: 0
+		}
+	}
+
+	sendOrder = (param) => {
+		let total = 0;
+		let quantity = 0;
+		if (param === 'add') {
+			this.onAdding();
+			quantity = this.state.qty+1;
+			total = this.props.price * (quantity);
+		}
+		if (param === 'remove') {
+			this.onRemove();
+			if (this.state.qty > 1) {
+				quantity = this.state.qty-1;
+				total = this.props.price * (quantity);
+			}
+		}
+		const order = {
+			name : this.props.name,
+			price : this.props.price,
+			qty : quantity,
+			total: total
+		}
+		if (quantity > 0) {
+			this.props.onAdding(order);
 		}
 	}
 
 	onAdding = () => {
 		let x = this.state.qty + 1;
 		this.setState({qty: x});
-		console.log('item added');
 	}
 
 	onRemove = () => {
 		let x = this.state.qty - 1;
 		if ( x >= 0 ) {
 			this.setState({qty: x});
-			console.log('item added');
 		}
 	}
 
 	render() {
 		const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
-		const { id, name, price, onRouteChange } = this.props;
+		const { id, name, price } = this.props;
 		return (
 			<div className='tc bg-lightest-blue dib br3 pa3 ma2 bw2 shadow-5'>
 				<img className="grow" alt='pic' src={images[id-1]} height='240' width='auto' />
@@ -47,13 +70,13 @@ class Card extends React.Component {
 				      	className="b ph3 pv2 input-reset ba b--black bg-transparent pointer f6 dib" 
 				      	type="submit"
 				      	value="Add To Cart"
-				      	onClick={ this.onAdding } 
+				      	onClick={ () => this.sendOrder('add') } 
 				     />
 				     <input 
 				      	className="b ph3 pv2 input-reset ba b--black bg-transparent pointer f6 dib" 
 				      	type="submit"
 				      	value="Remove"
-				      	onClick={ this.onRemove } 
+				      	onClick={ () => this.sendOrder('remove') } 
 				     />
 				     <p> Quantity : {this.state.qty} </p>
 				</div>

@@ -4,7 +4,7 @@ import './Navigation.css';
 const Navigation = ({onRouteChange, isSignedIn}) => {
 	if(isSignedIn) {
 		return (
-			<div className='bb'>
+			<div>
 			<nav style={{ display:'flex', justifyContent: 'flex-end'}}>
 				<p onClick={() => onRouteChange('home')} className='f4 link dim black pa2 pointer'> HOME </p>
 				<p onClick={() => onRouteChange('orders')} className='bl f4 link dim black pa2 pointer'> ORDERS </p>
