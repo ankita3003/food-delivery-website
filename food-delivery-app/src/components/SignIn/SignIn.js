@@ -42,21 +42,21 @@ class SignIn extends React.Component {
 	render() {
 		const { onRouteChange } = this.props;
 		return ( 
-			<div>
+			<div className="center pt5">
 				{ (this.state.wrongCreds) ? 
 					<div className="flex items-center justify-center pa4">
 					  <span className="dark-blue lh-title ml4">Wrong username or password! Try Again</span>
 					</div> :
 					<div></div>}
-				<article className="debug-grid br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-					<main className="pa4 black-80">
+				<article className="br3 ba dark-gray b--black-10 shadow-5 center pa3">
+					<main className="pa4 black-80 ">
 					  <div className="measure">
 					    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 					      <legend className="dark-blue f1 fw6 ph0 mh0">Sign In</legend>
 					      <div className="mt3">
 					        <label className="dark-blue db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        <input 
-					        	className="dark-blue pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="dark-blue pa2 input-reset ba bg-transparent hover-bg-dark-blue hover-white w-100" 
 					        	type="email" 
 					        	name="email-address"  
 					        	id="email-address"

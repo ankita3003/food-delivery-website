@@ -62,12 +62,14 @@ class App extends Component {
 		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} onAdding={this.onAdding} />
 		  		</div> :
 		  		(this.state.route === 'register') ?
-		    	<Register onRouteChange={this.onRouteChange} /> :
+		  		<div className="pa5">
+		    	<Register onRouteChange={this.onRouteChange} /> 
+		    	</div>:
 		    	(this.state.route === 'orders')? 
 		    	<div className='basket'>
 		    	<Cart cart={this.state.cart} /> 
 		    	</div>:
-		    	<div className="pa5" id='temp'>
+		    	<div className="pa5">
 		    	<SignIn onRouteChange={this.onRouteChange} />
 		    	</div>
 			}
