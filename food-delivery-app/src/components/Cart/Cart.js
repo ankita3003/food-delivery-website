@@ -9,7 +9,7 @@ class Cart extends React.Component {
 	}
 
 	componentDidMount() {
-		this.trimmed(this.props.cart);
+		this.setState({orderList:this.trimmed(this.props.cart)})
 	}
 
 	trimmed(cart) {
@@ -17,11 +17,13 @@ class Cart extends React.Component {
 		let newCart = [];
 		cart.forEach((item,index) => {
 			if ( index !== cart.length-1) {
-				if ( item.name !== cart[index+1].name )
+				if ( item.name !== cart[index+1].name && item.qty !== 0 )
 					newCart.push(item);
 			}	
 		});
-		this.setState({orderList:newCart})
+		if (cart[cart.length-1].qty !== 0 ) newCart.push(cart[cart.length-1]);
+		if ( newCart.length !== 0 ) return newCart;
+		else return []
 	}
  
 	compare(a,b) {
@@ -34,29 +36,33 @@ class Cart extends React.Component {
 
 	render() {
 		const { orderList } = this.state;
-		console.log(orderList);
+		const sum = orderList.reduce(function (a,b) { return a + (b.price*b.qty); }, 0);
 		return (
 			<div className="db center">
 			{ ( orderList.length === 0 )  ?
 				<h1> Cart Empty! </h1> :
 				<div>
 				<h1 className="f2 lh-copy">Orders</h1>
-				<table className="debug-grid collapse center br5 b--black pv2 ph3">
+				<table className="collapse center br5 b--black pv2 ph3">
 				<tbody>
-			  <tr className="striped--light-gray "><th className="ba tc pv2 ph3 tl f6 fw6 ttu">Item Name</th><th className="ba tr f6 ttu fw6 pv2 ph3">Quantity</th></tr>
+			  <tr className="striped--light-gray ">
+			  	<th className="ba tc pv2 ph3 tl f6 fw6 ttu">Item Name</th>
+			  	<th className="ba tr f6 ttu fw6 pv2 ph3">Quantity</th>
+			  	<th className="ba tr f6 ttu fw6 pv2 ph3">Cost</th>
+			  </tr>
 			  { orderList.map((order,i) => (
 			  		<tr key={i} className="striped--light-gray ">
 			  			<td className="ba pv2 ph3">{orderList[i].name}</td>
 			  			<td className="ba pv2 ph3">{orderList[i].qty}</td>
+			  			<td className="ba pv2 ph3">Rs. {orderList[i].qty * orderList[i].price}</td>
 			  		</tr>
 			  	)
 			  )}
-
-			  <tr className="striped--light-gray "><td className="ba pv2 ph3">Jurassic Park</td><td className="ba pv2 ph3">5 stars</td></tr>
-			  <tr className="striped--light-gray "><td className="ba pv2 ph3">Back to the Future</td><td className="ba pv2 ph3">5 stars</td></tr>
-			  <tr className="striped--light-gray "><td className="ba pv2 ph3">Primer</td><td className="ba pv2 ph3">5 stars</td></tr>
-			  <tr className="striped--light-gray "><td className="ba pv2 ph3">Sunshine</td><td className="ba pv2 ph3">5 stars</td></tr>
-			  <tr className="striped--light-gray "><td className="ba pv2 ph3">Moon</td><td className="ba pv2 ph3">5 stars</td></tr>
+			  <tr className="striped--light-gray ">
+			  	<th className="ba tc pv2 ph3 tl f6 fw6 ttu"></th>
+			  	<th className="ba tc f6 ttu fw6 pv2 ph3">Total</th>
+			  	<th className="ba tc f6 ttu fw6 pv2 ph3">Rs. {sum}</th>
+			  </tr>
 			</tbody>
 			</table>
 			</div>

@@ -40,9 +40,7 @@ class Card extends React.Component {
 			qty : quantity,
 			total: total
 		}
-		if (quantity > 0) {
-			this.props.onAdding(order);
-		}
+		this.props.onAdding(order);
 	}
 
 	onAdding = () => {
@@ -61,11 +59,11 @@ class Card extends React.Component {
 		const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
 		const { id, name, price } = this.props;
 		return (
-			<div className='tc bg-lightest-blue dib br3 pa3 ma2 bw2 shadow-5'>
+			<div className='tc bg-yellow dib br3 pa3 ma2 bw2 shadow-5'>
 				<img className="grow" alt='pic' src={images[id-1]} height='240' width='auto' />
 				<div>
-					<h2> {name} </h2>
-					<p> Rs. {price} </p>
+					<h2 className="near-black"> {name} </h2>
+					<p className="near-black"> Rs. {price} </p>
 					<input 
 				      	className="b ph3 pv2 input-reset ba b--black bg-transparent pointer f6 dib" 
 				      	type="submit"
