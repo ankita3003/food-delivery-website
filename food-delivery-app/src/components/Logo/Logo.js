@@ -1,6 +1,6 @@
 import React from 'react';
 import Tilt from 'react-tilt';
-import food from './food.png';
+import food from './cutlery.png';
 import './Logo.css';
 
 const Logo = () => {
@@ -10,10 +10,10 @@ const Logo = () => {
 			<div className="pr4 pt5">
 			<h3><em>Established 1889</em></h3>
 			</div>
-			<Tilt className="Tilt br2 shadow-2" options={{ max : 55 }} style={{ height: 150, width: 150 }} >
+			<Tilt className="Tilt br2 shadow-2" options={{ max : 55 }} style={{ height: 150, width: 120 }} >
  				<div className="Tilt-inner pa3"> 
- 					<img style={{ paddingTop:'5px' }} alt='logo' src={food} /> 
- 					<a href="#"> Tomatoe </a>
+ 					<img style={{ paddingTop:'' }} alt='logo' src={food} /> 
+ 					<h3> Tomatoe </h3>
  				</div>
 			</Tilt>
 		</div>

@@ -59,7 +59,7 @@ class App extends Component {
 		  		<div id='search'>
 		  			<SearchBox searchChange={this.onSearchChange} /> 
 		  			<Logo />
-		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} onAdding={this.onAdding} />
+		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} onAdding={this.onAdding} cart={this.state.cart} />
 		  		</div> :
 		  		(this.state.route === 'register') ?
 		  		<div className="pa5">
