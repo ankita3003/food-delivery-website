@@ -73,6 +73,7 @@ class Cart extends React.Component {
 				onClick={() => {
 					alert("Order Placed")
 					this.setState({'orderList': []})
+					this.props.onOrder();
 				}
 				} 
 			>

@@ -45,7 +45,7 @@ class Register extends React.Component {
 
 	render() {
 		return (
-			<div className="center pt5">
+			<div className="center pt5 pb5"  style={{background:'linear-gradient(89deg, #B4DFE5 0%, #D2FDFF 100%)'}}>
 				<article className="br3 ba dark-gray b--black-10 shadow-5 center pa3">
 					<main className="pa4 black-80">
 					  <div className="measure">

@@ -47,6 +47,12 @@ class App extends Component {
 		})
 	}
 
+	onOrder = () => {
+		this.setState({
+			cart:[]
+		})
+	}
+
 	render() {
 		const { searchfield, foodItems } = this.state;
 		const filteredItems = foodItems.filter(dish => {
@@ -67,7 +73,7 @@ class App extends Component {
 		    	</div>:
 		    	(this.state.route === 'orders')? 
 		    	<div className='basket'>
-		    	<Cart cart={this.state.cart} /> 
+		    	<Cart cart={this.state.cart} onOrder={this.onOrder} /> 
 		    	</div>:
 		    	<div className="pa5">
 		    	<SignIn onRouteChange={this.onRouteChange} />

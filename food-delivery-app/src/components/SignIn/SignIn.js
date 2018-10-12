@@ -42,7 +42,7 @@ class SignIn extends React.Component {
 	render() {
 		const { onRouteChange } = this.props;
 		return ( 
-			<div className="center pt5">
+			<div className="center pt5 pb5" style={{background:'linear-gradient(89deg, #B4DFE5 0%, #D2FDFF 100%)'}}>
 				{ (this.state.wrongCreds) ? 
 					<div className="flex items-center justify-center pa4">
 					  <span className="dark-blue lh-title ml4">Wrong username or password! Try Again</span>

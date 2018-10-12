@@ -59,7 +59,7 @@ class Card extends React.Component {
 		const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
 		const { id, name, price } = this.props;
 		return (
-			<div className='tc bg-yellow dib br3 pa3 ma2 bw2 shadow-5'>
+			<div className='tc bg-yellow dib br3 pa3 ma2 bw2 shadow-5' style={{background:'#B4DFE5'}}>
 				<img className="grow" alt='pic' src={images[id-1]} height='240' width='auto' />
 				<div>
 					<h2 className="near-black"> {name} </h2>
