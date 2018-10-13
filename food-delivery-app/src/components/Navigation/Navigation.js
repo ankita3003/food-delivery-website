@@ -4,10 +4,10 @@ import './Navigation.css';
 const Navigation = ({onRouteChange, isSignedIn}) => {
 	if(isSignedIn) {
 		return (
-			<div className='bg-light-yellow'>
+			<div className='bb bg-light-yellow'>
 			<nav style={{ display:'flex', justifyContent: 'flex-end'}}>
 				<p onClick={() => onRouteChange('home')} className='dark-blue f4 link dim black pa2 pointer'> HOME </p>
-				<p onClick={() => onRouteChange('orders')} className='dark-blue bl f4 link dim black pa2 pointer'> ORDERS </p>
+				<p onClick={() => onRouteChange('orders')} className='dark-blue bl f4 link dim black pa2 pointer'> CART </p>
 				<p onClick={() => onRouteChange('signout')} className='dark-blue bl f4 link dim black pa2 pointer'> SIGN OUT </p>
 			</nav>
 			</div>

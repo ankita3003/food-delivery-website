@@ -10,16 +10,18 @@ import dishes from './menu';
 import './App.css';
 import 'tachyons';
 
+const initialState = {
+	route: 'signin',
+	isSignedIn: false,
+	cart: [],
+	foodItems: [],
+	searchfield: ''
+}
+
 class App extends Component {
 	constructor() {
 		super();
-		this.state = {
-			route: 'signin',
-			isSignedIn: false,
-			cart: [],
-			foodItems: [],
-			searchfield: ''
-		}
+		this.state = initialState
 	}
 
 	componentDidMount() {
@@ -28,7 +30,8 @@ class App extends Component {
 
 	onRouteChange = (route) => {
 		if(route === 'signout') {
-	      this.setState({isSignedIn:false})
+	      this.setState(initialState)
+	      this.componentDidMount();
 	    } else if (route === 'home') {
 	      this.setState({isSignedIn:true})
 	    } else if (route === 'orders') {
