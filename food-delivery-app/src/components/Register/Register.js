@@ -23,29 +23,36 @@ class Register extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		this.props.onRouteChange('home');
-	// 	fetch('http://localhost:3000/register', {
-	// 		method: 'post',
-	// 		headers: {'Content-Type': 'application/json'},
-	// 		body: JSON.stringify({
-	// 			email: this.state.email,
-	// 			password: this.state.password,
-	// 			name: this.state.name,
-	// 		})
-	// 	})
-	// 		.then(response => response.json())
-	// 		.then(user => {
-	// 			if(user) {
-	// 				this.props.loadUser(user);
-	// 				this.props.onRouteChange('home')
-	// 			}
-	// 		}
-	// 	)
-	}
+		fetch('http://localhost:3000/register', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				email: this.state.email,
+				password: this.state.password,
+				name: this.state.name,
+			})
+		})
+			.then(response => response.json())
+			.then(user => {
+				if(user.id) {
+					this.props.loadUser(user);
+					this.props.onRouteChange('home')
+				} else {
+					this.setState({wrongInfo:true})
+				}
+			}
+		)
+	 }
 
 	render() {
 		return (
 			<div className="center pt5 pb5"  style={{background:'linear-gradient(89deg, #B4DFE5 0%, #D2FDFF 100%)'}}>
+				{ (this.state.wrongInfo) ? 
+					<div className="flex items-center justify-center pa4">
+					  <span className="lh-title ml4">Wrong Information. Try Again !</span>
+					</div> :
+					<div></div>
+				}
 				<article className="br3 ba dark-gray b--black-10 shadow-5 center pa3">
 					<main className="pa4 black-80">
 					  <div className="measure">

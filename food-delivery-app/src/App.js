@@ -15,6 +15,13 @@ const initialState = {
 	isSignedIn: false,
 	cart: [],
 	foodItems: [],
+	user: {
+	    id: '',
+	    name: '',
+	    email: '',
+	    orders: 0,
+	    joined: ''
+	},
 	searchfield: ''
 }
 
@@ -56,6 +63,16 @@ class App extends Component {
 		})
 	}
 
+	loadUser = (data) => {
+	    this.setState({user: {
+	      id: data.id,
+	      name: data.name,
+	      email: data.email,
+	      entries: data.entries,
+	      joined: data.joined
+	    }})
+	  }
+
 	render() {
 		const { searchfield, foodItems } = this.state;
 		const filteredItems = foodItems.filter(dish => {
@@ -72,14 +89,14 @@ class App extends Component {
 		  		</div> :
 		  		(this.state.route === 'register') ?
 		  		<div className="pa5">
-		    	<Register onRouteChange={this.onRouteChange} /> 
+		    	<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} /> 
 		    	</div>:
 		    	(this.state.route === 'orders')? 
 		    	<div className='basket'>
 		    	<Cart cart={this.state.cart} onOrder={this.onOrder} /> 
 		    	</div>:
 		    	<div className="pa5">
-		    	<SignIn onRouteChange={this.onRouteChange} />
+		    	<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 		    	</div>
 			}
 		  </div>
