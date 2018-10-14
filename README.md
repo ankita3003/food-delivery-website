@@ -18,8 +18,7 @@ Go back and go into the food-delivery-app directory using cd. And then,
  Run using : ``` npm start ```
  ###### Note : Server and app run on different ports, start the server(3000) first then the app(3001). 
 4. Working on database connectivity. If you want to manually build one, on MacOS :  
-  ``` createdb <db_name> .  
-      psql <db_name> . 
-  ```
+  ``` createdb <db_name> ```  
+  ```    psql <db_name> . ```
 
 
