@@ -1,8 +1,9 @@
 import React from 'react';
 
-const SearchBox = ( {searchChange } ) => {
+const SearchBox = ( { searchChange , name} ) => {
 	return (
-		<div className='fl f3 w-20 pa2 pl6 mt5' style={{ justifyContent: 'flex-end'}}>
+		<div className='fl f3 w-40 pa2 pl6' style={{ justifyContent: 'flex-end'}}>
+			<div className='pb3'>{ `Welcome ${name}, What would you like to have? `}</div>
 			<input 
 				className='pa3 ba b--dark-blue bg-light-yellow'
 				type='search'

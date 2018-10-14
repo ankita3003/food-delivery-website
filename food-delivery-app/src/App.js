@@ -32,7 +32,12 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ foodItems: dishes })
+		fetch('http://localhost:3000/menu')
+			.then(response => response.json())
+			.then(response => {
+				this.setState({ foodItems: dishes })
+			})
+		.catch(err => console.log('Error getting menu'));
 	};
 
 	onRouteChange = (route) => {
@@ -83,7 +88,7 @@ class App extends Component {
 		  	<Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
 		  	{ ( this.state.route === 'home' ) ?
 		  		<div id='search'>
-		  			<SearchBox searchChange={this.onSearchChange} /> 
+		  			<SearchBox searchChange={this.onSearchChange} name={this.state.user.name} /> 
 		  			<Logo />
 		  			<CardList foodItems={filteredItems} onRouteChange={this.onRouteChange} onAdding={this.onAdding} cart={this.state.cart} />
 		  		</div> :
