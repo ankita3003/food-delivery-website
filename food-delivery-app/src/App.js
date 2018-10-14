@@ -32,7 +32,12 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ foodItems: dishes })
+		fetch('http://localhost:3000/menu')
+			.then(response => response.json())
+			.then(response => {
+				this.setState({ foodItems: dishes })
+			})
+		.catch(err => console.log('Error getting menu'));
 	};
 
 	onRouteChange = (route) => {
