@@ -18,7 +18,7 @@ const db = require('knex')({
   }
 });
 
-app.get('/signin', (req,res) => {
+app.post('/signin', (req,res) => {
 	const {email, password} = req.body;
 	if (!email || !password) {
 		return res.status(400).json('incorrect form submission');
@@ -39,7 +39,6 @@ app.get('/signin', (req,res) => {
 		}
 	})
 	.catch(err => res.status(400).json('wrong credentials'));
-	return res.json('hola');
 })
 
 app.post('/register',(req,res) => {

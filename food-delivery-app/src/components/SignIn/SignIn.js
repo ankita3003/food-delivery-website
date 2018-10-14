@@ -76,7 +76,7 @@ class SignIn extends React.Component {
 					    </fieldset>
 					    <div className="">
 					      <input 
-					      	onClick={() => onRouteChange('home')}
+					      	onClick={this.onSubmitSignIn}
 					      	className="dark-blue b ph3 pv2 input-reset ba b--dark-blue bg-transparent grow pointer f6 dib" 
 					      	type="submit"
 					      	value="Sign in" />

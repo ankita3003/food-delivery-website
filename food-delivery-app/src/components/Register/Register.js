@@ -6,7 +6,8 @@ class Register extends React.Component {
 		this.state = {
 			email: '',
 			password: '',
-			name: ''
+			name: '',
+			wrongInfo: false
 		}
 	}
 
