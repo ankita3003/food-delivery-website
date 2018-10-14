@@ -9,7 +9,7 @@ import img7 from './images/img7.jpg';
 import img8 from './images/img8.jpg';
 import img9 from './images/img9.jpg';
 import img10 from './images/img10.jpg';
-
+import img11 from './images/img11.jpg';
 
 class Card extends React.Component {
 	constructor(props) {
@@ -56,7 +56,7 @@ class Card extends React.Component {
 	}
 
 	render() {
-		const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
+		const images = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11];
 		const { id, name, price } = this.props;
 		return (
 			<div className='tc bg-yellow dib br3 pa3 ma2 bw2 shadow-5' style={{background:'#B4DFE5'}}>
