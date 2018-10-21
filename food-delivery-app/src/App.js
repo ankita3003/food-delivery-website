@@ -21,7 +21,7 @@ const initialState = {
 	    orders: 0,
 	    joined: ''
 	},
-	searchfield: ''
+	searchfield: '',
 }
 
 class App extends Component {
