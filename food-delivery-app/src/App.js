@@ -6,7 +6,6 @@ import Register from './components/Register/Register';
 import SearchBox from './components/SearchBox/SearchBox';
 import CardList from './components/CardList/CardList';
 import Cart from './components/Cart/Cart';
-import dishes from './menu';
 import './App.css';
 import 'tachyons';
 
@@ -22,7 +21,7 @@ const initialState = {
 	    orders: 0,
 	    joined: ''
 	},
-	searchfield: ''
+	searchfield: '',
 }
 
 class App extends Component {
@@ -35,7 +34,7 @@ class App extends Component {
 		fetch('http://localhost:3000/menu')
 			.then(response => response.json())
 			.then(response => {
-				this.setState({ foodItems: dishes })
+				this.setState({ foodItems: response })
 			})
 		.catch(err => console.log('Error getting menu'));
 	};
