@@ -78,6 +78,11 @@ app.get('/menu',(req,res) => {
 		.then(item => res.json(item))
 })
 
+app.get('/images',(req,res) => {
+	return db.select('image_src').from('menu')
+		.then(url => res.json(url))
+})
+
 app.listen(3000, () => {
 	console.log('app running on port 3000');
 })
