@@ -21,4 +21,9 @@ Go back and go into the food-delivery-app directory using cd. And then,
   ``` createdb <db_name> ```  
   ```    psql <db_name> . ```
 
+## Further Work :
+1. Glitches while searching, can be resolved by sending order data into database, for every increase/decrease and retrieving. 
+2. Order history stored in database can be used for recommendation engines.
+3. The biggest, add multiple restaurants with multiple menus.
+4. Get a more well thought out design on the frontend.
 
